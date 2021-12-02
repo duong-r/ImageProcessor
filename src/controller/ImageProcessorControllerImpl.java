@@ -112,7 +112,7 @@ public class ImageProcessorControllerImpl implements ImageProcessorController, A
           break;
         case "mosaic":
           //TODO MOSAIC text
-          //this.model.mosaic(Integer.parseInt(in.next()), in.next(), in.next());
+          this.model.mosaic(Integer.parseInt(in.next()), in.next(), in.next());
         case "q":
         case "Q":
           this.processorQuit = true;
