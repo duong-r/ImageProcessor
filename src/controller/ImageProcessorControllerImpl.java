@@ -110,6 +110,9 @@ public class ImageProcessorControllerImpl implements ImageProcessorController, A
         case "sharpen":
           this.model.sharpen(in.next(), in.next());
           break;
+        case "mosaic":
+          //TODO MOSAIC text
+          //this.model.mosaic(Integer.parseInt(in.next()), in.next(), in.next());
         case "q":
         case "Q":
           this.processorQuit = true;
@@ -267,9 +270,9 @@ public class ImageProcessorControllerImpl implements ImageProcessorController, A
         this.view.setImage(image);
         histogram = new Histogram(this.model.getImage(imageName.toString()));
         this.view.setHistogram(histogram.drawHistogram());
+        break;
       }
-      break;
-      case "Darken":
+      case "Darken": {
         String value = JOptionPane.showInputDialog("Enter a positive value.");
         currImage = this.model.getLastImage();
         imageName = new StringBuilder(currImage.getName() + "-darkened-by-" + value);
@@ -279,6 +282,19 @@ public class ImageProcessorControllerImpl implements ImageProcessorController, A
         histogram = new Histogram(this.model.getImage(imageName.toString()));
         this.view.setHistogram(histogram.drawHistogram());
         break;
+      }
+      case "Mosaic": {
+        //TODO MOSAIC GUI
+        String value = JOptionPane.showInputDialog("Enter a positive seed value: ");
+        currImage = this.model.getLastImage();
+        imageName = new StringBuilder(currImage.getName() + "-mosaic-seed-" + value);
+        //this.model.mosaic(Integer.parseInt(value), currImage.getName(), imageName.toString());
+        image = ImageUtil.convertToBufferedImage(this.model.getImage(imageName.toString()));
+        this.view.setImage(image);
+        histogram = new Histogram(this.model.getImage(imageName.toString()));
+        this.view.setHistogram(histogram.drawHistogram());
+        break;
+      }
       case "Save":
         currImage = this.model.getLastImage();
         String saveName = JOptionPane.showInputDialog("Save as (include extension)");

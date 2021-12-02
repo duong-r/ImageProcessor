@@ -34,9 +34,11 @@ public class ImageProcessorGraphicalView extends JFrame implements ImageProcesso
   private final JButton intensityButton;
   private final JButton blurButton;
   private final JButton sharpenButton;
+  private final JButton mosaicButton;
   private final JButton saveButton;
   private final JLabel imageLabel;
   private final JLabel histogramLabel;
+
 
   /**
    * The constructor for the ImageProcessorGraphicalView.
@@ -123,6 +125,10 @@ public class ImageProcessorGraphicalView extends JFrame implements ImageProcesso
     sharpenButton.setActionCommand("Sharpen");
     dialogBoxesPanel.add(sharpenButton);
 
+    mosaicButton = new JButton("Mosaic");
+    mosaicButton.setActionCommand("Mosaic");
+    dialogBoxesPanel.add(mosaicButton);
+
     saveButton = new JButton("Save an Image");
     saveButton.setActionCommand("Save");
     dialogBoxesPanel.add(saveButton);
@@ -155,6 +161,7 @@ public class ImageProcessorGraphicalView extends JFrame implements ImageProcesso
     sepiaButton.addActionListener(listener);
     brightenButton.addActionListener(listener);
     darkenButton.addActionListener(listener);
+    mosaicButton.addActionListener(listener);
     saveButton.addActionListener(listener);
   }
 
