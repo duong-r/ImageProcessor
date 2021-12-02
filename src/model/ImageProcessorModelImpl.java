@@ -143,7 +143,7 @@ public class ImageProcessorModelImpl implements ImageProcessorModel {
   }
 
   @Override
-  public void mosaic(String name, String newImageName, int numberOfSeeds) {
+  public void mosaic(int numberOfSeeds, String name, String newImageName) {
     ImageImpl image = this.getImage(name);
     List<SeedImpl> seeds = image.getSeeds(numberOfSeeds);
 
