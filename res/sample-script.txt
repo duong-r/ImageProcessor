@@ -1,0 +1,38 @@
+load pain.bmp pain
+red-component pain bloody-pain
+green-component pain avarice
+blue-component pain the-blues
+darken 50 pain dark-passenger
+intensity pain intense-pain
+horizontal-flip pain mirrored-pain
+brighten 50 pain mr-brightside
+vertical-flip pain inverted-pain
+luma pain silver-lining
+value pain the-value-of-pain
+sepia pain vintage-pain
+greyscale pain pain-noir
+blur pain fuzzy-pain
+blur fuzzy-pain fuzzier-pain
+blur fuzzier-pain fuzziest-pain
+sharpen pain sharp-pain
+sharpen sharp-pain sharper-pain
+sharpen sharper-pain sharpest-pain
+save bloody-pain.png bloody-pain
+save avarice.jpg avarice
+save the-blues.jpg the-blues
+save dark-passenger.bmp dark-passenger
+save intense-pain.bmp intense-pain
+save mirrored-pain.png mirrored-pain
+save mr-brightside.jpg mr-brightside
+save inverted-pain.bmp inverted-pain
+save silver-lining.png silver-lining
+save the-value-of-pain.jpg the-value-of-pain
+save vintage-pain.png vintage-pain
+save pain-noir.png pain-noir
+save fuzzy-pain.png fuzzy-pain
+save fuzzier-pain.jpg fuzzier-pain
+save fuzziest-pain.jpg fuzziest-pain
+save sharp-pain.bmp sharp-pain
+save sharper-pain.bmp sharper-pain
+save sharpest-pain.bmp sharpest-pain
+q

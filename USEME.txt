@@ -1,0 +1,163 @@
+Supported Command-Line Options:
+- -file FILE.txt
+	When ran with this command, the program will 
+	run the script commands in the given file, FILE.
+- -text
+	When ran with this command, the program will 
+	run in interactive mode for dynamic scripting,
+	using script commands.
+- When ran with no command-line argument, the program will run
+with a GUI.
+
+Supported Script Commands:
+- load FILENAME NAME
+	Loads file path FILENAME from device storage and gives
+	it the name NAME.
+- save FILENAME NAME
+	Saves NAME image to file path FILENAME.
+- red-component NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME from the
+	red component of image NAME, and adds the new image to 
+	loaded images.
+- green-component NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME from the
+	green component of image NAME, and adds the new image to 
+	loaded images.
+- blue-component NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME from the
+	blue component of image NAME, and adds the new image to 
+	loaded images.
+- value NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME from the
+	value of image NAME, and adds the new image to 
+	loaded images. 
+- luma NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME from the
+	luma of image NAME, and adds the new image to 
+	loaded images.
+- intensity NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME from the
+	intensity of image NAME, and adds the new image to 
+	loaded images.
+- greyscale NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME from the
+	greyscale color transformation of image NAME, and adds the 
+	new image to loaded images.
+- sepia NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME from the
+	sepia color transformation of image NAME, and adds the
+	new image to loaded images.
+- brighten VALUE NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME that is
+	brighter than image NAME by VALUE, and adds the
+	new image to loaded images. VALUE is a positive
+	integer.
+- darken VALUE NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME that is
+	darker than image NAME by VALUE, and adds the
+	new image to loaded images. VALUE is a positive
+	integer.
+- verical-flip NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME that is
+	the vertical flip of image NAME, and adds the
+	new image to loaded images.
+- horizontal-flip NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME that is
+	the horizontal flip of image NAME, and adds the
+	new image to loaded images.
+- blur NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME that is 
+	the image NAME with a blur filter applied, and adds the
+	new image to loaded images.
+- sharpen NAME NEWIMAGENAME
+	Creates a new image under the name NEWIMAGENAME that is 
+	the image NAME with a sharpen filter applied, and adds the
+	new image to loaded images.
+
+Supported GUI Operations:
+- Load an Image:
+	When this button is pressed, an additional file explorer 
+	window will open where the user can browser the device folders
+	and files. Only files of supported file types will be shown.
+	After selecting (opening) a file, the image will show in the 
+	left-hand panel and a corresponding histogram of the rgb values
+	and intensity will appear in the right-hand panel.
+- Red-Component:
+	When this button is pressed, if an image is loaded, a new image,
+	representing the red-component of the previous image will appear
+	in the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Green-Component:
+	When this button is pressed, if an image is loaded, a new image,
+	representing the green-component of the previous image will appear
+	in the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Blue-Component:
+	When this button is pressed, if an image is loaded, a new image,
+	representing the blue-component of the previous image will appear
+	in the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Flip Horizontally:
+	When this button is pressed, if an image is loaded, a new image 
+	of the previous image flipped horizontally will appear in the Image
+	Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Flip Vertically:
+	When this button is pressed, if an image is loaded, a new image 
+	of the previous image flipped vertically will appear in the Image
+	Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Brighten:
+	When this button is pressed, an input dialog will appear querying 
+	the user to input a value to brighten the image by. If an image is loaded, 
+	a new image of the previous image brightened by the inputted value will 
+	appear in the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded or and invalid value is inputted, nothing will happen.
+- Darken
+	When this button is pressed, an input dialog will appear querying 
+	the user to input a value to darken the image by. If an image is loaded, 
+	a new image of the previous image darkened by the inputted value will 
+	appear in the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded or and invalid value is inputted, nothing will happen.
+- Value
+	When this button is pressed, if an image is loaded, a new image,
+	representing the value of the previous image will appear
+	in the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Luma
+	When this button is pressed, if an image is loaded, a new image,
+	representing the luma of the previous image will appear
+	in the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Intensity
+	When this button is pressed, if an image is loaded, a new image,
+	representing the intensity of the previous image will appear
+	in the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Greyscale
+	When this button is pressed, if an image is loaded, a new image,
+	of the previous image with a greyscale color transformation applied, 
+	will appear in the Image Panel with a corresponding histogram in the 
+	Histogram Panel. If there is no image loaded, nothing will happen.
+- Sepia
+	When this button is pressed, if an image is loaded, a new image,
+	of the previous image with a sepia color transformation applied, 
+	will appear in the Image Panel with a corresponding histogram in the 
+	Histogram Panel. If there is no image loaded, nothing will happen.
+- Blur
+	When this button is pressed, if an image is loaded, a new image,
+	of the previous image with a blur filter applied, will appear in 
+	the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Sharpen
+	When this button is pressed, if an image is loaded, a new image,
+	of the previous image with a sharpen filter applied, will appear in 
+	the Image Panel with a corresponding histogram in the Histogram Panel. 
+	If there is no image loaded, nothing will happen.
+- Save an Image:
+	When this button is pressed, an input dialog will appear querying 
+	the user to input a save name for the current image. If an image is loaded, 
+	it will be saved in the same folder as the program as the given name and file
+	extension. If there is no image loaded or and invalid value is inputted, 
+	nothing will happen.
+	
