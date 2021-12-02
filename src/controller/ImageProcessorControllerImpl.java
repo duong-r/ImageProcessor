@@ -288,7 +288,7 @@ public class ImageProcessorControllerImpl implements ImageProcessorController, A
         String value = JOptionPane.showInputDialog("Enter a positive seed value: ");
         currImage = this.model.getLastImage();
         imageName = new StringBuilder(currImage.getName() + "-mosaic-seed-" + value);
-        //this.model.mosaic(Integer.parseInt(value), currImage.getName(), imageName.toString());
+        this.model.mosaic(Integer.parseInt(value), currImage.getName(), imageName.toString());
         image = ImageUtil.convertToBufferedImage(this.model.getImage(imageName.toString()));
         this.view.setImage(image);
         histogram = new Histogram(this.model.getImage(imageName.toString()));
