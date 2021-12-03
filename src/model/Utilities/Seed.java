@@ -1,6 +1,8 @@
-package model;
+package model.Utilities;
 
 import java.util.List;
+
+import model.Utilities.Posn;
 
 public interface Seed {
 

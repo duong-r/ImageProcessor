@@ -1,4 +1,6 @@
-package model;
+package model.Utilities;
+
+import model.Utilities.Posn;
 
 public class PosnImpl implements Posn {
   private final int x;

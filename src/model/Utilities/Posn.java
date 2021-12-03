@@ -1,4 +1,4 @@
-package model;
+package model.Utilities;
 
 public interface Posn {
   int getX();

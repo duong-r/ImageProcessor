@@ -2,8 +2,9 @@ package model;
 
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
+
+import model.Utilities.SeedImpl;
 
 /**
  * Represents a ImageImpl. An image is an array of pixels with a name, height, and width.
@@ -357,12 +358,21 @@ public class ImageImpl implements Image {
     return blueChannel;
   }
 
-  ArrayList<SeedImpl> getSeeds(int numberOfSeeds) {
+  public ArrayList<SeedImpl> getSeeds(int numberOfSeeds) {
     Random rand = new Random();
 
     ArrayList<SeedImpl> seeds = new ArrayList<>();
     for (int i = 0; i < numberOfSeeds; i++) {
+      if (numberOfSeeds > width * height || numberOfSeeds < 0) {
+        throw new IllegalArgumentException("The given number of seeds is invalid");
+      }
+      SeedImpl seed = new SeedImpl(rand.nextInt(width), rand.nextInt(height));
+
+      while(seeds.contains(seed)) {
+       seed = new SeedImpl(rand.nextInt(width), rand.nextInt(height));
+      }
       seeds.add(new SeedImpl(rand.nextInt(width), rand.nextInt(height)));
+
     }
     return seeds;
   }
