@@ -1,50 +1,66 @@
-package model;
+package model.Utilities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-/**
- *
- */
-public class SeedImpl implements Seed {
+import model.Utilities.Posn;
+import model.Utilities.PosnImpl;
 
+public class SeedImpl implements Seed{
   private final int x;
   private final int y;
   private List<Posn> cluster = new ArrayList<>();
 
-  /**
-   *
-   * @param x
-   * @param y
-   */
   public SeedImpl(int x, int y) {
+    if (x < 0 || y < 0) {
+      throw new IllegalArgumentException("X and Y cannot be negative");
+    }
     this.x = x;
     this.y = y;
   }
 
-  @Override
   public int getX() {
     return this.x;
   }
 
-  @Override
   public int getY() {
     return this.y;
   }
 
   @Override
   public List<Posn> getCluster() {
-    return null;
+    return this.cluster;
   }
 
-  @Override
   public void addPosn(int row, int col) {
-    this.cluster.add(new Posn(row, col));
+    this.cluster.add(new PosnImpl(row, col));
   }
 
-  @Override
   public Double findEuclidean(int row, int col) {
     return Math.sqrt(((this.x - row) * (this.x - row)) + ((this.y - col) * (this.y - col)));
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if(o == this) {
+      return true;
+    }
+
+    if (! (o instanceof SeedImpl)) {
+      return false;
+    }
+
+    SeedImpl that = (SeedImpl) o;
+
+    return this.x == that.x
+            && this.y == that.y;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(x, y);
   }
 }
 //  Pixels are assigned to seeds (a randomly placed row col coord) by distance. Once associated with a seed, must differentiate associated pixels from non associated.

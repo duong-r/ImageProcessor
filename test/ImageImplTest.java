@@ -193,4 +193,12 @@ public class ImageImplTest {
     assertEquals(sharpPain.getPixelAt(0, 0).getBlueValue(), 4);
   }
 
+  @Test
+  public void ImageImplMosaic() {
+    ImageImpl mosaicPain = this.pain.mosaic(100,"mosaicPain");
+    assertEquals(mosaicPain.getPixelAt(0, 0).getRedValue(), 55);
+    assertEquals(mosaicPain.getPixelAt(0, 0).getGreenValue(), 27);
+    assertEquals(mosaicPain.getPixelAt(0, 0).getBlueValue(), 4);
+  }
+
 }

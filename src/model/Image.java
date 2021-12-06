@@ -1,8 +1,6 @@
 package model;
 
 
-import java.util.ArrayList;
-
 /**
  * Represents an Image. One {@code Image} object represents one image. Images have names.
  */
@@ -147,5 +145,11 @@ public interface Image {
    */
   Image sharpen(String newImageName);
 
-  ArrayList<SeedImpl> getSeeds(int numberOfSeeds);
+  /**
+   * Creates a mosaic image using this image.
+   *
+   * @param numberOfSeeds The number of unique seeds that will form the image.
+   * @param newImageName  The name of the image that is created.
+   */
+  Image mosaic(int numberOfSeeds, String newImageName);
 }

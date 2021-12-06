@@ -1,7 +1,11 @@
 package model;
 
+import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+
+import model.Utilities.Posn;
+import model.Utilities.SeedImpl;
 
 /**
  * Represents the model for a PPM image processor. One object represents one model for the
@@ -10,7 +14,6 @@ import java.util.List;
 public class ImageProcessorModelImpl implements ImageProcessorModel {
 
   private final ArrayList<ImageImpl> loadedImages = new ArrayList<>();
-
 
   @Override
   public void loadImage(String filename, String name) {
@@ -144,26 +147,9 @@ public class ImageProcessorModelImpl implements ImageProcessorModel {
 
   @Override
   public void mosaic(int numberOfSeeds, String name, String newImageName) {
-    ImageImpl image = this.getImage(name);
-    List<SeedImpl> seeds = image.getSeeds(numberOfSeeds);
-
-    for(int row = 0; row < image.getWidth(); row ++) {
-      int index = 0;
-      Double euclideanDist = Double.MAX_VALUE;
-
-      for(int col = 0; col < image.getHeight(); col++) {
-        for(int i = 0; i < seeds.size(); i++) {
-          Double euclidean = seeds.get(i).findEuclidean(row, col);
-          if(euclidean < euclideanDist) {
-            index = i;
-            euclideanDist = euclidean;
-          }
-        }
-//      Associate the pixel at row col to the seed at point SeedRow and SeedCol;
-        seeds.get(index).addPosn(row, col); //helper method written later
-      }
-    }
-
+    ImageImpl imageToModify = this.getImage(name);
+    ImageImpl modifiedImage = imageToModify.mosaic(numberOfSeeds, newImageName);
+    loadedImages.add(modifiedImage);
   }
 
 
