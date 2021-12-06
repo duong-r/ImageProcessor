@@ -1,6 +1,8 @@
 package model;
 
 
+import java.util.ArrayList;
+
 /**
  * Represents an Image. One {@code Image} object represents one image. Images have names.
  */
@@ -145,4 +147,5 @@ public interface Image {
    */
   Image sharpen(String newImageName);
 
+  ArrayList<SeedImpl> getSeeds(int numberOfSeeds);
 }

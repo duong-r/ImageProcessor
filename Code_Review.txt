@@ -1,0 +1,28 @@
+CODE REVIEW
+
+DESIGN
+Overall, this design is very cohesive and follows many of the object-oriented design patterns
+and principles that we learned in class. The classes in this code all serve a valid purpose
+and there are no classes which seem redundant or out of place. There aren't any unnecessary
+complications with the design and this makes the code fairly easy to understand.
+
+IMPLEMENTATION
+
+
+
+DOCUMENTATION
+
+
+
+CODE STRENGTHS
+
+
+
+CODE LIMITATIONS
+
+
+
+SUGGESTIONS
+
+
+

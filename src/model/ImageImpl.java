@@ -357,7 +357,8 @@ public class ImageImpl implements Image {
     return blueChannel;
   }
 
-  ArrayList<SeedImpl> getSeeds(int numberOfSeeds) {
+  @Override
+  public ArrayList<SeedImpl> getSeeds(int numberOfSeeds) {
     Random rand = new Random();
 
     ArrayList<SeedImpl> seeds = new ArrayList<>();

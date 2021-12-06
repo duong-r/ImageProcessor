@@ -3,28 +3,46 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeedImpl {
+/**
+ *
+ */
+public class SeedImpl implements Seed {
+
   private final int x;
   private final int y;
   private List<Posn> cluster = new ArrayList<>();
 
+  /**
+   *
+   * @param x
+   * @param y
+   */
   public SeedImpl(int x, int y) {
     this.x = x;
     this.y = y;
   }
 
+  @Override
   public int getX() {
     return this.x;
   }
 
+  @Override
   public int getY() {
     return this.y;
   }
 
+  @Override
+  public List<Posn> getCluster() {
+    return null;
+  }
+
+  @Override
   public void addPosn(int row, int col) {
     this.cluster.add(new Posn(row, col));
   }
 
+  @Override
   public Double findEuclidean(int row, int col) {
     return Math.sqrt(((this.x - row) * (this.x - row)) + ((this.y - col) * (this.y - col)));
   }
