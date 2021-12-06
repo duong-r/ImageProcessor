@@ -3,15 +3,15 @@ package model.Utilities;
 import model.Utilities.Posn;
 
 public class PosnImpl implements Posn {
-  private final int x;
   private final int y;
+  private final int x;
 
-  public PosnImpl(int x, int y) {
-    if (x < 0 || y < 0) {
+  public PosnImpl(int y, int x) {
+    if (y < 0 || x < 0) {
       throw new IllegalArgumentException("X and Y cannot be negative");
     }
-    this.x = x;
     this.y = y;
+    this.x = x;
   }
 
   @Override

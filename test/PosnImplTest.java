@@ -17,12 +17,12 @@ public class PosnImplTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void seedConstructorTestNegX() {
-    new PosnImpl(-50, 50);
+    new PosnImpl(50, -50);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void seedConstructorTestNegY() {
-    new PosnImpl(50, -50);
+    new PosnImpl(-50, 50);
   }
 
   @Test
