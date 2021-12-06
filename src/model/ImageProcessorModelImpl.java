@@ -147,47 +147,9 @@ public class ImageProcessorModelImpl implements ImageProcessorModel {
 
   @Override
   public void mosaic(int numberOfSeeds, String name, String newImageName) {
-    ImageImpl image = this.getImage(name);
-    ArrayList<SeedImpl> seeds = image.getSeeds(numberOfSeeds);
-
-    for(int row = 0; row < image.getHeight(); row ++) {
-      for(int col = 0; col < image.getWidth(); col++) {
-        int index = 0;
-        Double euclideanDist = Double.MAX_VALUE;
-
-        for(int i = 0; i < seeds.size(); i++) {
-          Double euclidean = seeds.get(i).findEuclidean(row, col);
-          if(euclidean < euclideanDist) {
-            index = i;
-            euclideanDist = euclidean;
-          }
-        }
-//      Associate the pixel at row col to the seed at point SeedRow and SeedCol;
-        seeds.get(index).addPosn(row, col); //helper method written later
-      }
-    }
-
-    Pixel[][] pixelImage = new Pixel[image.getHeight()][image.getWidth()];
-    for (SeedImpl seed : seeds) {
-      int r = 0;
-      int g = 0;
-      int b = 0;
-
-      for (Posn p : seed.getCluster()) {
-        r += image.getPixelAt(p.getX(), p.getY()).getRedValue();
-        g += image.getPixelAt(p.getX(), p.getY()).getGreenValue();
-        b += image.getPixelAt(p.getX(), p.getY()).getBlueValue();
-      }
-
-      r = r / seed.getCluster().size();
-      g = g / seed.getCluster().size();
-      b = b / seed.getCluster().size();
-
-      for (Posn p : seed.getCluster()) {
-        pixelImage[p.getX()][p.getY()] = new PixelImpl(r, g, b);
-      }
-    }
-
+    ImageImpl imageToModify = this.getImage(name);
+    ImageImpl modifiedImage = imageToModify.mosaic(numberOfSeeds, newImageName);
+    loadedImages.add(modifiedImage);
   }
 
 

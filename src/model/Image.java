@@ -145,4 +145,11 @@ public interface Image {
    */
   Image sharpen(String newImageName);
 
+  /**
+   * Creates a mosaic image using this image.
+   *
+   * @param numberOfSeeds The number of unique seeds that will form the image.
+   * @param newImageName  The name of the image that is created.
+   */
+  Image mosaic(int numberOfSeeds, String newImageName);
 }

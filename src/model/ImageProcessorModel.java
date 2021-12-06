@@ -152,7 +152,8 @@ public interface ImageProcessorModel {
   void sharpen(String name, String newImageName);
 
   /**
-   * Creates a mosaic image created from an image with a given image name and number of unique seeds.
+   * Creates a mosaic image created from an image with
+   * a given image name and number of unique seeds.
    *
    * @param numberOfSeeds The number of unique seeds that will form the image.
    * @param name          The name of the image to be modified.

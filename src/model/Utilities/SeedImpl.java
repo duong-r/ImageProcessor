@@ -13,6 +13,9 @@ public class SeedImpl implements Seed{
   private List<Posn> cluster = new ArrayList<>();
 
   public SeedImpl(int x, int y) {
+    if (x < 0 || y < 0) {
+      throw new IllegalArgumentException("X and Y cannot be negative");
+    }
     this.x = x;
     this.y = y;
   }

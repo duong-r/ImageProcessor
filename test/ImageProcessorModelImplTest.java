@@ -67,4 +67,12 @@ public class ImageProcessorModelImplTest {
     this.examplePPMImageProcessor.lumaOf("pain", "luma-of-pain");
     assertEquals(this.examplePPMImageProcessor.getLoadedImages().size(), 2);
   }
+
+  @Test
+  public void testMosaic() {
+    this.examplePPMImageProcessor.loadImage("res/pain.ppm", "pain");
+    this.examplePPMImageProcessor.mosaic(100, "pain", "mosaic-of-pain");
+    assertEquals(this.examplePPMImageProcessor.getLoadedImages().size(), 2);
+  }
+
 }
