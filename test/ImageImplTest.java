@@ -196,8 +196,8 @@ public class ImageImplTest {
   @Test
   public void ImageImplMosaic() {
     ImageImpl mosaicPain = this.pain.mosaic(100,"mosaicPain");
-    assertEquals(mosaicPain.getPixelAt(0, 0).getRedValue(), 55);
-    assertEquals(mosaicPain.getPixelAt(0, 0).getGreenValue(), 27);
+    assertEquals(mosaicPain.getPixelAt(0, 0).getRedValue(), 43);
+    assertEquals(mosaicPain.getPixelAt(0, 0).getGreenValue(), 115);
     assertEquals(mosaicPain.getPixelAt(0, 0).getBlueValue(), 4);
   }
 

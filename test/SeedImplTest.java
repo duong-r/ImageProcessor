@@ -59,7 +59,7 @@ public class SeedImplTest {
 
   @Test
   public void seedFindEuclideanTest() {
-    assertEquals(this.exampleSeed.findEuclidean(11, 11), 55.154328932550705,
+    assertEquals(this.exampleSeed.findEuclidean(3, 11), 61.07372593840988,
             0.000001);
 
   }

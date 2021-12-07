@@ -268,6 +268,7 @@ public class ImageImpl implements Image {
     ImageImpl mosaicImage = new ImageImpl(this.height, this.width, newImageName);
     ArrayList<SeedImpl> seeds = this.getSeeds(numberOfSeeds);
 
+    //iterate through every pixel
     for(int row = 0; row < height; row ++) {
       for(int col = 0; col < width; col++) {
         int index = 0;
@@ -275,11 +276,7 @@ public class ImageImpl implements Image {
 
         for(int i = 0; i < seeds.size(); i++) {
           Double euclidean = seeds.get(i).findEuclidean(row, col);
-          if (euclidean == 0.0) {
-            index = i;
-            break;
-          }
-          else if(euclidean < euclideanDist) {
+          if(euclidean < euclideanDist) {
             index = i;
             euclideanDist = euclidean;
           }
@@ -288,30 +285,11 @@ public class ImageImpl implements Image {
         seeds.get(index).addPosn(row, col); //helper method written later
       }
     }
-    int i = 0;
     for (SeedImpl seed : seeds) {
-      i++;
-      int r = 0;
-      int g = 0;
-      int b = 0;
-
       for (Posn p : seed.getCluster()) {
-        r += image[p.getX()][p.getY()].getRedValue();
-        g += image[p.getX()][p.getY()].getGreenValue();
-        b += image[p.getX()][p.getY()].getBlueValue();
-      }
-      System.out.println(i);
-
-      System.out.println(r);
-      System.out.println(g);
-      System.out.println(b);
-        System.out.println(seed.getCluster().size());
-
-      r = r / seed.getCluster().size();
-      g = g / seed.getCluster().size();
-      b = b / seed.getCluster().size();
-      for (Posn p : seed.getCluster()) {
-        mosaicImage.image[p.getX()][p.getY()] = new PixelImpl(r, g, b);
+        Pixel seedPixel = image[seed.getY()][seed.getX()];
+        mosaicImage.image[p.getY()][p.getX()] = new PixelImpl(seedPixel.getRedValue(),
+                seedPixel.getGreenValue(), seedPixel.getBlueValue());
       }
     }
     return mosaicImage;
@@ -416,19 +394,20 @@ public class ImageImpl implements Image {
   }
 
   public ArrayList<SeedImpl> getSeeds(int numberOfSeeds) {
-    Random rand = new Random();
+    if (numberOfSeeds > width * height || numberOfSeeds < 0) {
+      throw new IllegalArgumentException("The given number of seeds is invalid");
+    }
 
+    Random rand = new Random();
     ArrayList<SeedImpl> seeds = new ArrayList<>();
+
     for (int i = 0; i < numberOfSeeds; i++) {
-      if (numberOfSeeds > width * height || numberOfSeeds < 0) {
-        throw new IllegalArgumentException("The given number of seeds is invalid");
-      }
-      SeedImpl seed = new SeedImpl(rand.nextInt(width), rand.nextInt(height));
+      SeedImpl seed = new SeedImpl(rand.nextInt(height), rand.nextInt(width));
 
       while(seeds.contains(seed)) {
-       seed = new SeedImpl(rand.nextInt(width), rand.nextInt(height));
+       seed = new SeedImpl(rand.nextInt(height), rand.nextInt(width));
       }
-      seeds.add(new SeedImpl(rand.nextInt(width), rand.nextInt(height)));
+      seeds.add(new SeedImpl(rand.nextInt(height), rand.nextInt(width)));
 
     }
     return seeds;

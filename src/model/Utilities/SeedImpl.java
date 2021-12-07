@@ -10,14 +10,14 @@ import model.Utilities.PosnImpl;
 public class SeedImpl implements Seed{
   private final int x;
   private final int y;
-  private List<Posn> cluster = new ArrayList<>();
+  private final List<Posn> cluster = new ArrayList<>();
 
-  public SeedImpl(int x, int y) {
+  public SeedImpl(int y, int x) {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("X and Y cannot be negative");
     }
-    this.x = x;
     this.y = y;
+    this.x = x;
   }
 
   public int getX() {
@@ -38,7 +38,7 @@ public class SeedImpl implements Seed{
   }
 
   public Double findEuclidean(int row, int col) {
-    return Math.sqrt(((this.x - row) * (this.x - row)) + ((this.y - col) * (this.y - col)));
+    return Math.sqrt(((this.y - row) * (this.y - row)) + ((this.x - col) * (this.x - col)));
   }
 
 
