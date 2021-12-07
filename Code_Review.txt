@@ -1,28 +1,33 @@
 CODE REVIEW
 
-DESIGN
-Overall, this design is very cohesive and follows many of the object-oriented design patterns
-and principles that we learned in class. The classes in this code all serve a valid purpose
-and there are no classes which seem redundant or out of place. There aren't any unnecessary
-complications with the design and this makes the code fairly easy to understand.
+GENERAL DESIGN
+Overall, this design was very cohesive and fairly easy to work with and build upon. All interfaces
+served a designated purpose and there were no unnecessary complications or bloated code added
+without logical reasoning. We were able to figure out the functionality of the program fairly
+quickly and had no issues understanding the purpose of any interfaces/methods/classes. We found this
+code to be very convenient to use and appreciate the simplicity and cohesiveness of the design. The
+code was fully functional, and we did not need to request any changes to be made.
 
-IMPLEMENTATION
+CODE STRENGTHS AND LIMITATIONS
+The greatest strength that we observed with this code was its simplicity, readability, and
+ease to build upon. We found the implementation of the mosaic to be fairly easy to implement
+with this design, especially in terms of the view and controller where the edits to the
+classes were almost trivial for adding a new feature. With that said, we thought that the code
+could use some improvement with the flexibility of the model, as none of the existing model, or
+image methods could have been reused or repurposed for a new feature. While each method served a
+clear purpose, we felt that many methods could have been simplified and abstracted using switch
+cases to mutate variables and thus greatly simplify the model/image method implementations. We also
+found the implementation of the filtering methods to be a bit confusing and definitely saw some
+opportunities to simplify this implementation for better cohesiveness and flexibility. Aside from
+these points, we found the model design to be good and easy to comprehend.
 
+DOCUMENTATION AND COHESIVENESS
+In terms of documentation, we did not run into any problems with java docs or comments at any point
+in our use and analysis of this code. All java docs were well written and adequately explained
+the purpose of the methods, classes, and interfaces that they were describing. As we have emphasized
+in previous sections, we found the cohesiveness and readability of this code to be its strongest
+point and again give major props for this.
 
-
-DOCUMENTATION
-
-
-
-CODE STRENGTHS
-
-
-
-CODE LIMITATIONS
-
-
-
-SUGGESTIONS
 
 
 
