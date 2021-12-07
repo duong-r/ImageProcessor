@@ -13,13 +13,15 @@ The greatest strength that we observed with this code was its simplicity, readab
 ease to build upon. We found the implementation of the mosaic to be fairly easy to implement
 with this design, especially in terms of the view and controller where the edits to the
 classes were almost trivial for adding a new feature. With that said, we thought that the code
-could use some improvement with the flexibility of the model, as none of the existing model, or
-image methods could have been reused or repurposed for a new feature. While each method served a
-clear purpose, we felt that many methods could have been simplified and abstracted using switch
-cases to mutate variables and thus greatly simplify the model/image method implementations. We also
-found the implementation of the filtering methods to be a bit confusing and definitely saw some
-opportunities to simplify this implementation for better cohesiveness and flexibility. Aside from
-these points, we found the model design to be good and easy to comprehend.
+could use some improvement with the flexibility of the model, as none of the existing model or
+image methods could have been reused for a new feature. While each method served a
+clear purpose and all methods were fully functional, we felt that many methods could have been
+simplified and abstracted using switch, as much of the code was nearly identical in many methods. We
+would suggest to group by a specific functionality (filtering, transforming) and creating a
+generalized method for this and using switch statements to differentiate and mutate the variables.
+We also found the implementation of the filtering methods to be a bit confusing and definitely saw
+some opportunities to simplify this implementation for better cohesiveness and flexibility.
+Aside from these points, however, we found the model design to be very good and easy to build upon.
 
 DOCUMENTATION AND COHESIVENESS
 In terms of documentation, we did not run into any problems with java docs or comments at any point
