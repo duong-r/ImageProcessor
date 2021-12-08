@@ -1,10 +1,13 @@
 import org.junit.Test;
 
 import java.util.ArrayList;
-import model.Utilities.SeedImpl;
+import model.utils.SeedImpl;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Class utilized for testing the Seed class.
+ */
 public class SeedImplTest {
 
   SeedImpl exampleSeed = new SeedImpl(50, 50);

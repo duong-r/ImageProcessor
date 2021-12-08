@@ -4,9 +4,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
-import model.Utilities.Posn;
-import model.Utilities.Seed;
-import model.Utilities.SeedImpl;
+import model.utils.Posn;
+import model.utils.SeedImpl;
 
 /**
  * Represents a ImageImpl. An image is an array of pixels with a name, height, and width.
@@ -269,19 +268,19 @@ public class ImageImpl implements Image {
     ArrayList<SeedImpl> seeds = this.getSeeds(numberOfSeeds);
 
     //iterate through every pixel
-    for(int row = 0; row < height; row ++) {
-      for(int col = 0; col < width; col++) {
+    for (int row = 0; row < height; row++) {
+      for (int col = 0; col < width; col++) {
         int index = 0;
         Double euclideanDist = Double.MAX_VALUE;
 
-        for(int i = 0; i < seeds.size(); i++) {
+        for (int i = 0; i < seeds.size(); i++) {
           Double euclidean = seeds.get(i).findEuclidean(row, col);
-          if(euclidean < euclideanDist) {
+          if (euclidean < euclideanDist) {
             index = i;
             euclideanDist = euclidean;
           }
         }
-      // Associate the pixel at row col to the seed at point SeedRow and SeedCol;
+        // Associate the pixel at row col to the seed at point SeedRow and SeedCol;
         seeds.get(index).addPosn(row, col); //helper method written later
       }
     }
@@ -289,7 +288,7 @@ public class ImageImpl implements Image {
       for (Posn p : seed.getCluster()) {
         Pixel seedPixel = image[seed.getY()][seed.getX()];
         mosaicImage.image[p.getY()][p.getX()] = new PixelImpl(seedPixel.getRedValue(),
-                seedPixel.getGreenValue(), seedPixel.getBlueValue());
+            seedPixel.getGreenValue(), seedPixel.getBlueValue());
       }
     }
     return mosaicImage;
@@ -393,6 +392,12 @@ public class ImageImpl implements Image {
     return blueChannel;
   }
 
+  /**
+   * Getting seeds from the user input.
+   *
+   * @param numberOfSeeds the specified number of seeds
+   * @return an ArrayList of seeds
+   */
   public ArrayList<SeedImpl> getSeeds(int numberOfSeeds) {
     if (numberOfSeeds > width * height || numberOfSeeds < 0) {
       throw new IllegalArgumentException("The given number of seeds is invalid");
@@ -404,8 +409,8 @@ public class ImageImpl implements Image {
     for (int i = 0; i < numberOfSeeds; i++) {
       SeedImpl seed = new SeedImpl(rand.nextInt(height), rand.nextInt(width));
 
-      while(seeds.contains(seed)) {
-       seed = new SeedImpl(rand.nextInt(height), rand.nextInt(width));
+      while (seeds.contains(seed)) {
+        seed = new SeedImpl(rand.nextInt(height), rand.nextInt(width));
       }
       seeds.add(new SeedImpl(rand.nextInt(height), rand.nextInt(width)));
 

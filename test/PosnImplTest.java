@@ -1,11 +1,12 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
-
-import model.Utilities.PosnImpl;
+import model.utils.PosnImpl;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Class utilized for testing the Posn class.
+ */
 public class PosnImplTest {
   PosnImpl examplePosn = new PosnImpl(50, 50);
 

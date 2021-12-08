@@ -111,8 +111,8 @@ public class ImageProcessorControllerImpl implements ImageProcessorController, A
           this.model.sharpen(in.next(), in.next());
           break;
         case "mosaic":
-          //TODO MOSAIC text
           this.model.mosaic(Integer.parseInt(in.next()), in.next(), in.next());
+          break;
         case "q":
         case "Q":
           this.processorQuit = true;
@@ -284,7 +284,6 @@ public class ImageProcessorControllerImpl implements ImageProcessorController, A
         break;
       }
       case "Mosaic": {
-        //TODO MOSAIC GUI
         String value = JOptionPane.showInputDialog("Enter a positive seed value: ");
         currImage = this.model.getLastImage();
         imageName = new StringBuilder(currImage.getName() + "-mosaic-seed-" + value);

@@ -1,11 +1,6 @@
 package model;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collection;
-
-import model.Utilities.Posn;
-import model.Utilities.SeedImpl;
 
 /**
  * Represents the model for a PPM image processor. One object represents one model for the
