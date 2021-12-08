@@ -1,3 +1,36 @@
+MOSAIC IMPLEMENTATION DETAILS
+
+No modifications to the recieved code we’re made to implement the mosaic functionality,
+we only added new code on top of what was given to support the new functionality.
+Our mosaic model takes in a non negative, integer value from the user, along with the name of the
+image to be modified, and the name of the new image. This information is passed to the model,
+which then retrieves the target image from the already present hashmap of images, then uses it
+to create a new mosaic using a helper function in the already present image class.
+
+The helper mosaic method takes the number of seeds, and the new image’s name, to create a list
+of seeds that are positioned on different pixels of the image, then iterates through every pixel
+in “this” image to determine the closest seed to that pixel, using the added method in the seed
+class that finds the Euclidean distance of two positions. The row,col pair of the pixel are stored
+the a list of Posns of a Seed’s cluster, which allows us to associate the positions of nearby
+pixels to seeds. A Posn is an added class that is used to store row,col positions.
+
+One the double for loop that iterates through every pixel is completed, another double for loop
+goes through every seed, and then through every cluster, in order to change the pixels at the
+Posn’s stored in the seed’s cluster to the color of the pixel that the seed is located at.
+
+Once this is complete, the helper returns the image to the model which is then added to the hashmap.
+
+Our designEd our code to match the design of the people before us, as our model’s method passes
+the related information along to the image class, which handles the creation of the image.
+Once the image is created, we use the same style found in each functionality supporting
+method of the model to store our image.
+
+Adding new functionality to the controller and view was fairly trivial and simply required adding
+a new case for the mosaic operation in all methods which deal with features.
+
+***************************************************************************************************
+
+
 Design Overview:
 Images are loaded using ImageUtil methods and represented as ImageImpls, regardless of file type.
 This is done by extracting rgb data from the BufferedImage objects created from reading files using
